@@ -11,6 +11,12 @@ matrix:
     - arch: ppc64le
       python: 3.6
 
+before_install:
+ # Travis user running build does not have permission to build wheel. Hence, this fix -
+  - |
+      if [[ "$TRAVIS_CPU_ARCCH" == "ppc64le" ]]; then
+        sudo chown -R $USER:$GROUP ~/.cache/pip/wheels
+      fi
 install:
   - pip install tox-travis coveralls
 
