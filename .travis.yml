@@ -5,6 +5,11 @@ matrix:
   include:
     - python: 3.5
     - python: 3.6
+    #PPC64LE
+    - arch: ppc64le
+      python: 3.5
+    - arch: ppc64le
+      python: 3.6
 
 install:
   - pip install tox-travis coveralls
